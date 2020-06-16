@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <button @click="increaseHitCount()">Click here to increase hit count on VueX store</button>
+    <p>Your hit count is: {{this.$store.state.count}}</p>
   </div>
 </template>
 
@@ -10,6 +12,11 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    increaseHitCount () {
+      this.$store.commit('increment')
     }
   }
 }
